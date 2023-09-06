@@ -41,7 +41,14 @@ class Car: Vehicle {
 let myCars: [Car] = [Car(carType: .sedan, name: "BMW"),
                      Car(carType: .coupe, name: "Audi")]
 
-func informationAboutMyCars() async {
+func showNameMyCars() {
+    myCars.map { car in
+        let nameCar = car.name
+        print(nameCar)
+    }
+}
+
+func informationsAboutMyCars() async {
     for car in myCars {
         let information = "Esse é um veículo do tipo \(car.vehicleType.description), do tipo \(car.carType.description), identificado como \(car.name.description)"
         print(information)
@@ -49,7 +56,7 @@ func informationAboutMyCars() async {
 }
 
 Task {
-    await informationAboutMyCars()
+    await informationsAboutMyCars()
 }
 
 
